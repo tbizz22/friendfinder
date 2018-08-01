@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // api Routing
 var apiroutes = require("./routing/apiRoutes");
-app.use("/api/friends", apiroutes);
+app.use("/", apiroutes);
 
 
 
