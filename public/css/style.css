@@ -9,3 +9,46 @@
 .border {
     border: 2px solid black;
 }
+
+html {
+    background-color: #e1f5fe
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.page-footer {
+    background-color: grey;
+}
+
+nav {
+    background-color: grey;
+}
+
+a {
+    color: darkblue;
+}
+
+.mt0 {
+    margin-top: 0px;
+}
+
+
+.fontNunito {
+    font-family: 'Nunito Sans', sans-serif;
+    color:black;
+    font-weight: 300;
+    opacity: 1;
+}
+
+
+.logo {
+    color: #7986cb;
+}
