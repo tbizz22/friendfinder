@@ -1,0 +1,21 @@
+ {{#questions}}
+<div class="collection-item">
+    <div class="row">
+        <div id="question{{questionID}}" data-question="{{questionID}}" class="flow-text">
+            {{question}}
+        </div>
+    </div>
+    <div class="row">
+        <div id="answers{{questionID}}">
+            <form class="center-align col-12" action="#">
+                {{#each ../choices}}
+                <label class="p20">
+                    <input class="with-gap" data-response="{{value}}" type="radio" name="group1">
+                    <span>{{descriptor}}</span>
+                </label>
+                {{/each}}
+            </form>
+        </div>
+    </div>
+</div>
+{{/questions}}

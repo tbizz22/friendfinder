@@ -1,6 +1,7 @@
 
 // node libraries
 var express = require("express");
+var exphbs = require("express-handlebars")
 var bodyParser = require("body-parser");
 var path = require("path");
 
@@ -11,6 +12,9 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.engine("handlebars", exphbs({ defaultLayout: "home" }));
+app.set("view engine", "handlebars");
+
 
 
 
@@ -19,7 +23,7 @@ app.use(bodyParser.json());
 // html  routing
 var htmlroutes = require("./routing/htmlRoutes")
 app.use("/", htmlroutes);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views')));
 
 
 
@@ -36,7 +40,6 @@ app.use("/", apiroutes);
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
 });
-
 
 
 

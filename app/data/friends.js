@@ -35,7 +35,7 @@ var questions = [{
 },
 {
     questionID: 5,
-    question: "Do you agree with this statement",
+    question: "Do you disagree with this statement",
 },
 {
     questionID: 6,
