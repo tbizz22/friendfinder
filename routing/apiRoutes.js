@@ -17,7 +17,6 @@ router.use(function timeLog(req, res, next) {
     next()
 })
 
-
 //   api 
 router.get("/api/friends", function (req, res) {
     return res.json(friends.friends);
@@ -30,7 +29,6 @@ router.get("/api/questions", function (req, res) {
 router.get("/api/choices", function (req, res) {
     return res.json(friends.choices);
 })
-
 
 router.post("/api/friends", function (req, res) {
     var newfriend = req.body;

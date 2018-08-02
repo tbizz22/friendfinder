@@ -1,24 +1,27 @@
 // survey.js
-var questions = getQuestions();
-var choices = getChoices();
+var questions = [];
+var choices = [];
+
+getQuestions();
+
+
 
 function getQuestions() {
     $.get("/api/questions", function (data) {
-        console.log(data)
         questions = data
-        return questions
+        getChoices()
+
     })
 }
 
-
-function getChoices() {
+function getChoices() { 
     $.get("/api/choices", function (data) {
-        console.log(data)
-        choices = data
-        return choices;
+       choices = data
+       drawPage()        
     })
 }
 
 
-console.log(questions);
-console.log(choices);
+function drawPage() {
+
+}
