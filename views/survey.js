@@ -14,45 +14,15 @@ $(document).ready(function () {
                 scoreArr.push(int);
             }
         }
-       
-        var arrayOfNumbers = scoreArr.map(Number);
-        
+
+
+
+        // friend object
         SurveyRes = {
             name: $("#name").val().trim(),
             photo: $("#photo").val().trim(),
-            scores: arrayOfNumbers
+            scores: scoreArr
         }
-
-
-        // determine best match
-        // $.get("/api/friends", function (req, res) {
-        //     console.log(req);
-        //     var friends = req
-        //     var currScore;
-        //     var bestScore = 99
-        //     var bestFriend = "";
-        //     for (var i = 0; i < friends.length; i++) {
-        //         var currentcheckArr = friends[i].scores
-        //             for (var s = 0; i < currentcheckArr.length; s++) {
-        //                currScore = currScore + Math.abs(parseInt(scoreArr[s]) - parseInt(currentcheckArr[i])) 
-        //                console.log("curr Score" + currScore)
-        //             }
-        //         if (currScore < bestScore) {
-        //             bestScore = currScore;
-        //             bestFriend = friends[i];
-        //             console.log("Best match" + bestFriend)
-        //             console.log("Best score" + bestScore)
-        //         }
-        //     }
-        // })
-
-
-
-
-
-
-
-
 
 
         $.post("/api/friends", SurveyRes,
@@ -61,6 +31,34 @@ $(document).ready(function () {
                     console.log("sent");
                 } else {}
             });
+
+
+        // determine best match
+        $.get("/api/friends", function (req, res) {
+            var friendsArr = req;
+            var bestScore = 99
+            var bestFriend = "";
+
+            // for each friend (-1 to ignore the just submitted user)
+            for (var i = 0; i < friendsArr.length - 1; i++) {
+                var currScore = 0;
+                var currentCheckArr = friendsArr[i].scores
+
+                // compare each answer
+                for (var s = 0; s < currentCheckArr.length; s++) {
+                    currScore = currScore + Math.abs(parseInt(scoreArr[s]) - parseInt(currentCheckArr[s]));
+                }
+                // validate total answers score for each friend
+                if (currScore < bestScore) {
+                    bestFriend = friendsArr[i].name;
+                    bestScore = currScore;
+                    console.log("Best match: " + bestFriend)
+                    console.log("Best score: " + bestScore)
+                }
+            }
+        })
+
+
     });
 
 });
