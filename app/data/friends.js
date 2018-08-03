@@ -40,6 +40,18 @@ var questions = [{
 {
     questionID: 6,
     question: "Do you agree with this statement",
+},
+{
+    questionID: 7,
+    question: "Do you agree with this statement",
+},
+{
+    questionID: 8,
+    question: "Do you agree with this statement",
+},
+{
+    questionID: 9,
+    question: "Do you agree with this statement",
 }
 ]
 

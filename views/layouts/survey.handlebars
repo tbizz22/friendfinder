@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="../js/materialize.js"></script>
     <script src="../survey.js"></script>
 
 </head>
@@ -41,7 +42,11 @@
         <div class="collection">
             {{{ body }}}
         </div>
+        <button class="btn waves-effect waves-light right mb30" id="submit" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
     </div>
+
 
 </main>
 
@@ -50,7 +55,7 @@
         <div class="row">
             <a href="/api/">friendsAPI</a> |
 
-            <a href="https://github.com/tbizz22/friendfinder">Github Repo</a> 
+            <a href="https://github.com/tbizz22/friendfinder">Github Repo</a>
             |
             <a href="../images/friends.png" target="_blank">Friends!</a>
         </div>
