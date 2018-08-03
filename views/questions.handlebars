@@ -1,21 +1,36 @@
- {{#questions}}
-<div class="collection-item">
-    <div class="row">
-        <div id="question{{questionID}}" data-question="{{questionID}}" class="flow-text">
-            {{question}}
+<form id="survey" action="#">
+    <div class="collection-item">
+        <div class="flow-text"> Tell us who you are</div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="name" type="text" class="validate">
+                <label for="name"> Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="photo" type="text" class="validate">
+                <label for="photo">Photo URL</label>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div id="answers{{questionID}}">
-            <form class="center-align col-12" action="#">
-                {{#each ../choices}}
-                <label class="p20">
-                    <input class="with-gap" data-response="{{value}}" type="radio" name="group1">
-                    <span>{{descriptor}}</span>
-                </label>
-                {{/each}}
-            </form>
+    {{#questions}}
+    <div class="collection-item">
+        <div class="row">
+            <div id="question{{questionID}}" data-question="{{questionID}}" class="flow-text">
+                {{question}}
+            </div>
+        </div>
+        <div class="row">
+            <div ">
+                <div class="center-align col-12">
+                    {{#each ../choices}}
+                    <label class="p20">
+                        <input class="with-gap" data-response="{{value}}" type="radio" id="answers{{../questionID}}" name="group{{../questionID}}">
+                        <span>{{descriptor}}</span>
+                    </label>
+                    {{/each}}
+                </div>
+            </div>
         </div>
     </div>
-</div>
-{{/questions}}
+    {{/questions}}
+</form>
