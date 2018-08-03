@@ -1,7 +1,12 @@
 //survey.js
 
 
-$(document).ready(function () {
+$(document).ready(function () {  
+    
+    M.AutoInit();
+    $('.modal').modal();
+    
+
     $("#submit").on("click", function (event) {
         event.preventDefault();
         // get every radio button
@@ -54,8 +59,10 @@ $(document).ready(function () {
                 if (currScore < bestScore) {
                     bestFriend = friendsArr[i].name;
                     bestScore = currScore;
+                    bestFriendFull = friendsArr[i];
                     console.log("Best match: " + bestFriend)
                     console.log("Best score: " + bestScore)
+                    showResults(bestFriendFull)
                 }
             }
         })
@@ -64,3 +71,14 @@ $(document).ready(function () {
     });
 
 });
+
+
+function showResults(bestFriendFull) {
+    console.log(bestFriendFull);
+    console.log(bestFriendFull.name);
+    $("#matchname").html(bestFriendFull.name);
+    $("#pic").attr("src",bestFriendFull.photo);
+    var instance = M.Modal.getInstance(document.getElementById("modal1"));
+    instance.open();
+
+}
